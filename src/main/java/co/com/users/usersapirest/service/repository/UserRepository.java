@@ -1,4 +1,4 @@
-package co.com.users.usersapirest.service;
+package co.com.users.usersapirest.service.repository;
 
 import co.com.users.usersapirest.model.User;
 import org.springframework.stereotype.Repository;

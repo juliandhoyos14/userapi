@@ -1,17 +1,20 @@
 package co.com.users.usersapirest.usecase;
 
 import co.com.users.usersapirest.model.User;
-import co.com.users.usersapirest.service.UserRepository;
-import lombok.AllArgsConstructor;
+import co.com.users.usersapirest.service.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Component
-@AllArgsConstructor
 public class UserUseCase {
 
     private final UserRepository userRepository;
+
+    public UserUseCase(@Qualifier("mySQLUserManager") UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     public List<User> getUsers(Integer minAge, Integer maxAge) {
         return userRepository.getUsers(minAge, maxAge);

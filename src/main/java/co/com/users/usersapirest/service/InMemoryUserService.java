@@ -1,12 +1,13 @@
 package co.com.users.usersapirest.service;
 
 import co.com.users.usersapirest.model.User;
+import co.com.users.usersapirest.service.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Service
+@Service("inMemoryUserService")
 public class InMemoryUserService implements UserRepository {
 
     private List<User> users = new ArrayList<>();
