@@ -1,5 +1,6 @@
 package co.com.users.usersapirest.service.entity;
 
+import co.com.users.usersapirest.model.Course;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
@@ -27,4 +28,19 @@ public class CourseEntity {
     private Integer credits;
     @ManyToMany(mappedBy = "coursesList")
     private List<UserEntity> users = new ArrayList<>();
+
+    public static Course toModel(CourseEntity courseEntity) {
+        return new Course(
+                courseEntity.getId(),
+                courseEntity.getName(),
+                courseEntity.getDescription(),
+                courseEntity.getCredits()
+        );
+    }
+
+    public static List<Course> toModelList(List<CourseEntity> courseEntities) {
+        return courseEntities.stream()
+                .map(CourseEntity::toModel)
+                .toList();
+    }
 }

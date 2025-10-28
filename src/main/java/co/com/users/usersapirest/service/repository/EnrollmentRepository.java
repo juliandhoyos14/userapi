@@ -1,5 +1,7 @@
 package co.com.users.usersapirest.service.repository;
 
+import co.com.users.usersapirest.model.Course;
+import co.com.users.usersapirest.model.User;
 import co.com.users.usersapirest.service.entity.CourseEntity;
 import co.com.users.usersapirest.service.entity.UserEntity;
 
@@ -32,7 +34,7 @@ public interface EnrollmentRepository {
      * @return Lista de cursos del usuario
      * @throws IllegalArgumentException si el usuario no existe
      */
-    List<CourseEntity> getUserCourses(String userId);
+    List<Course> getUserCourses(String userId);
 
     /**
      * Obtiene todos los estudiantes matriculados en un curso.
@@ -41,5 +43,5 @@ public interface EnrollmentRepository {
      * @return Lista de usuarios matriculados en el curso
      * @throws IllegalArgumentException si el curso no existe
      */
-    List<UserEntity> getCourseUsers(String courseId);
+    List<User> getCourseUsers(String courseId);
 }
